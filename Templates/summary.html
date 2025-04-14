@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='matchineer_favicon.png') }}">
+    <title>Matchineer - Matches</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='summary.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarala:wght@400;700&display=swap" rel="stylesheet">
+    
+
+</head>
+<body>
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+        {% if matches %}
+            <div class="form-container">
+                <h2 class="text-center mb-4">Your Matches</h2>
+                {% for match in matches %}
+                    <div class="match">
+                        <p><strong>Name:</strong> {{ match.user_name }}</p>
+                        <p><strong>Email:</strong> {{ match.user_email }}</p>
+                    </div>
+                {% endfor %}
+                <a href="/">
+                    <button type="go-home" class="go-home-button">Go to Home Page</button>
+                </a>
+                </button>
+            </div>
+        {% else %}
+            <p>No matches found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

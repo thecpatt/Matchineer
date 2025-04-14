@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matchineer</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='matchineer_favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Sarala:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="{{ url_for('static', filename='home.js') }}"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">
+                <img src="{{ url_for('static', filename='matchineer_logo.png') }}" alt="Matchineer" class="nav-logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/start_form">MATCH</a></li>
+            <li><a href="/about">ABOUT</a></li>
+        </ul>
+        <div class="burger" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <!-- Home Page Content -->
+    <img src="{{ url_for('static', filename='matchineer_logo.png') }}" alt="Matchineer" class="body-image">
+    <div class="home-container">
+        <h1>Match and Meet</h1>
+        <p>Develop friendships at App State</p>
+        <a href="/personal_info" class="start-button">START</a>
+    </div>
+
+    <div class="footer">
+        <p> Created in Boone, NC for App State Mountaineers </p>
+    </div>
+
+</body>
+</html>
+
+    

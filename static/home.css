@@ -1,0 +1,203 @@
+/* General Styling */
+* {
+    font-family: "Sarala", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Sarala', sans-serif;
+    background: url('background.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Keeps the background stationary */
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding-bottom: 50px;
+    min-height: 100vh;
+    overflow: hidden;
+    
+}
+
+.navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    background: rgba(0, 0, 0, 0.82); /* Semi-transparent background */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.nav-logo{
+    height: 35px;  /* Adjust the logo size */
+    width: auto;   /* Maintain aspect ratio */
+    display: block;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 5px;
+}
+
+.nav-links a {
+    font-family: "Sarala", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffcc00;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+/* Hover Effect */
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile Menu Button */
+.burger {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        top: 60px;
+        left: 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .burger {
+        display: block;
+    }
+}
+
+.body-image {
+    width: 90%;
+    padding-bottom: 10%;
+    height: auto;
+    display: block;
+    
+}
+
+/* Home Container (Centered with Spacing) */
+.home-container {
+    scrollbar-width: none;
+    width: 65%;
+    background: #ffcc00c0;
+    padding: 25px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(200, 200, 200, 0.2);
+    text-align: center;
+    opacity: 0;  /* Initially hidden */
+    transform: translateY(50px);  /* Start slightly lower */
+    animation: fadeInUp 1s ease-in-out forwards;
+    position: absolute;
+    overflow-y: auto;
+    bottom: 100px;
+    transform: translateX(-50%); /* Center it horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 30vh;
+}
+
+.home-container h1 {
+    font-family: "Sarala", sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    margin-top: -10px;
+    word-wrap: break-word; /* Forces long words to wrap */
+    hyphens: auto; /* Adds hyphenation to long words when necessary */
+}
+
+.home-container p {
+    font-family: "Sarala", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Forces long words to wrap */
+    hyphens: auto; /* Adds hyphenation to long words when necessary */
+}
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.start-button {
+    font-family: "Sarala", sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    background: black;
+    color: #ffcc00;
+    padding: 12px 30px;
+    border-radius: 5px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+}
+
+/* Footer Styling */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: rgb(180, 180, 180);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+
+}
+
+@media (max-width: 768px) {
+    .home-container {
+        width: 90%;
+    }
+    .footer {
+        font-size: 12px;
+        padding: 8px 0;
+    }
+}

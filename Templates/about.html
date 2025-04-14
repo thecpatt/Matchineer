@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matchineer</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='matchineer_favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Sarala:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="{{ url_for('static', filename='home.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='about.js') }}"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">
+                <img src="{{ url_for('static', filename='matchineer_logo.png') }}" alt="Matchineer" class="nav-logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/start_form">MATCH</a></li>
+            <li><a href="/about">ABOUT</a></li>
+        </ul>
+        <div class="burger" onclick="toggleMenu()">☰</div>
+    </nav>
+    <div class = "about-container">
+        <div class="faq-item">
+            <h2>What is Matchineer?</h2>
+            <p>Matchineer is a service for all students at App State to develop connections with each other. It works by having users fill
+                out a form with basic personal information, your passions or interests, and a short personality test. This data will then
+                be used to compare users with one another, finding similarities to pair form applicants. You will then be given your match
+                results on the summary page (make sure to record these before leaving the page). Whether you are a freshman or a graduate 
+                student, Matchineer can work for you!
+            </p>
+        </div>
+        <div class="faq-item">
+            <h2>How to contact Matchineer</h2>
+            <p>This website is designed to provide an interactive and user-friendly experience for filling out forms. If you find an issue
+                on the website or would like to report a user, contact Carson Patterson at pattersoncw@appstate.edu. In the case you are
+                reporting a user, make sure you provide documentation of any problems that are present.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h2>Getting rid of your account</h2>
+            <p>We understand that a user may want their account removed for one reason or another. We have a system in place that profiles
+                created over six months ago will be deleted from the database. If you would like your profile to be removed sooner, contact
+                Carson Patterson at pattersoncw@appstate.edu.
+            </p>
+        </div>
+    </div>
+    <div class="footer">
+        Created in Boone, NC for App State Mountaineers
+    </div>
+
+</body>
+</html>
