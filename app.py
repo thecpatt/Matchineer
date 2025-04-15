@@ -94,6 +94,13 @@ def home():
     session.clear()
     return render_template("home.html")
 
+@app.route("/check-templates")
+def check_templates():
+    path = os.path.join(os.path.dirname(__file__), 'Templates')
+    if os.path.exists(path):
+        return f"Templates folder exists at: {path} | Files: {os.listdir(path)}"
+    return "Templates folder NOT found"
+
 @app.route("/<page_name>", methods=["GET", "POST"])
 def page(page_name):
     start_page = "start_form"
