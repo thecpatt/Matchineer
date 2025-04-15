@@ -15,7 +15,7 @@ import settings as st
 
 from better_profanity import profanity
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="/Templates")
 
 app.config['SECRET_KEY'] = st.SECRET_KEY
 
@@ -231,6 +231,11 @@ def summary():
     thr.start()
     """
     return render_template("summary.html", answers=session, matches=matches)
+
+@app.route("/debug")
+def debug():
+    files = os.listdir(os.path.join(os.path.dirname(__file__), "Templates"))
+    return "<br>".join(files)
 
 ## MAIL
 """
