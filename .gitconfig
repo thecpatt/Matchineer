@@ -1,0 +1,8 @@
+[safe]
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+[remote "origin"]
+    url = https://github.com/thecpatt/Matchineer.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
