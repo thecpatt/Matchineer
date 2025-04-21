@@ -16,7 +16,7 @@ import settings as st
 
 from better_profanity import profanity
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='Templates')
 
 app.config['SECRET_KEY'] = os.urandom(42)
 
