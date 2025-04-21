@@ -4,6 +4,7 @@ import re
 import os
 from datetime import datetime, timedelta
 from threading import Thread
+from waitress import serve
 
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
@@ -17,15 +18,22 @@ from better_profanity import profanity
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = st.SECRET_KEY
+app.config['SECRET_KEY'] = os.urandom(42)
 
+app.config['MYSQL_HOST'] = "127.0.0.1"
+app.config['MYSQL_PORT'] = 3306
+app.config['MYSQL_USER'] = "cpatt"
+app.config['MYSQL_PASSWORD'] = "cpatt"
+app.config['MYSQL_DB'] = "matchineer_test"
+app.config["MYSQL_CURSORCLASS"] = "DictCursor"
+"""
 app.config['MYSQL_HOST'] = st.MYSQLHOST
 app.config['MYSQL_PORT'] = st.MYSQL_PORT
 app.config['MYSQL_USER'] = st.MYSQL_USER
 app.config['MYSQL_PASSWORD'] = st.MYSQL_PASSWORD
 app.config['MYSQL_DB'] = st.MYSQL_DB
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
-
+"""
 mysql = MySQL(app)
 
 questions = {
@@ -93,13 +101,6 @@ questions = {
 def home():
     session.clear()
     return render_template("home.html")
-
-@app.route("/check-templates")
-def check_templates():
-    path = os.path.join(os.path.dirname(__file__), 'Templates')
-    if os.path.exists(path):
-        return f"Templates folder exists at: {path} | Files: {os.listdir(path)}"
-    return "Templates folder NOT found"
 
 @app.route("/<page_name>", methods=["GET", "POST"])
 def page(page_name):
@@ -500,4 +501,5 @@ def user_matching(user_data):
 ## RUN IT
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get("PORT", 10000))  # default if not set
+    serve(app, host='0.0.0.0', port=port)
