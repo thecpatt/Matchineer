@@ -19,7 +19,7 @@ from better_profanity import profanity
 app = Flask(__name__, template_folder='Templates')
 
 app.config['SECRET_KEY'] = os.urandom(42)
-
+"""
 app.config['MYSQL_HOST'] = "127.0.0.1"
 app.config['MYSQL_PORT'] = 3306
 app.config['MYSQL_USER'] = "cpatt"
@@ -33,7 +33,7 @@ app.config['MYSQL_USER'] = st.MYSQL_USER
 app.config['MYSQL_PASSWORD'] = st.MYSQL_PASSWORD
 app.config['MYSQL_DB'] = st.MYSQL_DB
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
-"""
+
 mysql = MySQL(app)
 
 questions = {
